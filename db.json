@@ -1,0 +1,15 @@
+{
+    "yoshis": [{
+        "id": 1, 
+        "color": "green", 
+        "imgUrl": "greenyoshi.png"
+    }, {
+        "id": 2, 
+        "color": "blue", 
+        "imgUrl": "blueyoshi.png"
+    }, {
+        "id": 3, 
+        "color": "red", 
+        "imgUrl": "redyoshi.png"
+    }]
+}
