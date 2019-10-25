@@ -18,7 +18,7 @@ export default class Yoshi extends Component {
         this.setState({
             mushToggle: !this.state.mushToggle
         })
-        console.log(this.state.mushToggle)
+        this.props.saveMushroomStatusFn(this.props.yoshiObj.id, {mushToggle: !this.props.yoshiObj.mushToggle})
     }
 
     render() {
@@ -30,7 +30,7 @@ export default class Yoshi extends Component {
                     </div>    
                 </button>
 
-                {this.state.mushToggle ? (
+                {this.props.yoshiObj.mushToggle ? (
                 <button onClick={() => this.toggleMushroom(this.props.yoshiObj.id)}>
                     <img className="mushroom" src="./assets/poisinmushroom.png" alt="poisin mushroom" />
                 </button>

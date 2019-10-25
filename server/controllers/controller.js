@@ -2,9 +2,10 @@ const yoshiHatchedIsle = []
 const yoshiHatchedKingdom = []
 let id = 0
 
+
 module.exports = {
     hatchIsle: (req, res) => {
-        const newYoshi = {...req.body, id}
+        const newYoshi = {...req.body, id, mushToggle: false}
         yoshiHatchedIsle.push(newYoshi)
         id++
         res.status(200).send(yoshiHatchedIsle)
@@ -36,7 +37,13 @@ module.exports = {
     mushToggleIsle: (req, res) => {
         const {id} = req.params
         const index = yoshiHatchedIsle.findIndex(el => el.id === +id)
-        yoshiHatchedIsle.splice(index, 1)
+        yoshiHatchedIsle[index].mushToggle = req.body.mushToggle
         res.status(200).send(yoshiHatchedIsle)
+    }, 
+    mushToggleKingdom: (req, res) => {
+        const {id} = req.params
+        const index = yoshiHatchedKingdom.findIndex(el => el.id === +id)
+        yoshiHatchedKingdom[index].mushToggle = req.body.mushToggle
+        res.status(200).send(yoshiHatchedKingdom)
     }
 }

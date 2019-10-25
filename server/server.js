@@ -17,6 +17,7 @@ app.delete('/api/yoshiIsle/:id', ctrl.releaseIsle)
 
 app.post('/api/yoshiKingdom', ctrl.hatchKingdom)
 app.get('/api/yoshiKingdom', ctrl.getYoshiKingdom)
+app.put('/api/yoshiKingdom/:id', ctrl.mushToggleKingdom)
 app.delete('/api/yoshiKingdom/:id', ctrl.releaseKingdom)
 
 app.listen(SERVER_PORT, () => console.log(`${SERVER_PORT} Yoshi's marching on Mushroom Kingdom.`))

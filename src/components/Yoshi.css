@@ -5,6 +5,7 @@ button {
     border: none;
     color: rgb(53, 53, 53);
     margin: 0;
+    outline: none;
 }
 
 .yoshi {
@@ -30,4 +31,33 @@ button {
     position: absolute;
     top: -20px;
     left: -30px;
+
+}
+
+
+
+.left-arrow {
+    position: absolute;
+    color: rgba(255, 255, 255, 0);
+    height: 500px;
+    width: 700px;
+    transition: 1s;
+    transform: translate(-150px, 180px)
+}
+
+.left-arrow:hover {
+    color: rgba(105, 105, 105, 1);
+}
+
+.right-arrow {
+    position: absolute;
+    color: rgba(255, 255, 255, 0);
+    height: 500px;
+    width: 700px;
+    transition: 1s;
+    transform: translate(150px, 180px)
+}
+
+.right-arrow:hover {
+    color: rgba(105, 105, 105, 1);
 }

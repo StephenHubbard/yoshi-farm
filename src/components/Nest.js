@@ -3,6 +3,8 @@ import './Nest.css';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+
 
 export default class Catcher extends Component {
     constructor() {
@@ -16,22 +18,31 @@ export default class Catcher extends Component {
 
     componentDidMount() {
         this.setState({
-            img: "./assets/egg.png"
+            img: "./assets/egg.png",
+            color: '',
         })
     }
 
     sendToIsle() {
-        axios.post('/api/yoshiIsle', this.state)
-        .then(res => {
-            this.componentDidMount()
-        })
+        if (this.state.color) {
+            axios.post('/api/yoshiIsle', this.state)
+            .then(res => {
+                this.componentDidMount()
+            }) 
+        } else {
+            alert("cannot send egg")
+        }
     }
 
     sendToKingdom() {
-        axios.post('/api/yoshiKingdom', this.state)
-        .then(res => {
-            this.componentDidMount()
-        })
+        if (this.state.color) {
+            axios.post('/api/yoshiKingdom', this.state)
+            .then(res => {
+                this.componentDidMount()
+            })
+        } else {
+            alert("cannot send egg")
+        }
     }
 
     hatchEgg() {
@@ -65,11 +76,6 @@ export default class Catcher extends Component {
         }
     }
 
-    arrowToggle() {
-        console.log("hover over")
-        // <style="color: red" />
-    }
-
 
     render() {
         return (
@@ -77,22 +83,32 @@ export default class Catcher extends Component {
                 <h3 className="title">Yoshi Nest</h3>
                     <div className="three-el">
 
-                    <div className="left-container" onMouseOver={() => this.arrowToggle()}>
+
+                    <div className="left-container">
                         <button className="side-icon" onClick={() => this.sendToIsle()}>
+                            <div className="left-arrow">
+                                <FontAwesomeIcon icon={faArrowLeft} size="4x"/>
+                            </div>
                             <img className="yoshi-pic" src="./assets/yoshilogo.png" alt="yoshi logo"/>
-                            <p className="left-text">Send to Yoshi Isle</p>
+                                <p className="left-text">Send to Yoshi Isle</p>
                         </button>
                     </div>
 
+
                         <img className="middle-pic" src={this.state.img} alt={this.state.color} />
                         <button className="side-icon" onClick={() => this.sendToKingdom()}>
+                            <div className="right-arrow">
+                                <FontAwesomeIcon icon={faArrowRight} size="4x"/>
+                            </div>
                             <img className="castle-pic" src="./assets/castle.png" alt="castle" />
                                 <p>Send to Mushroom Kingdom</p>
                         </button>
                     </div>
-                <hr />
-                <button className="nav-btn" onClick={() => this.hatchEgg()}>Hatch Egg!</button>
-                <button className="nav-btn" onClick={() => this.componentDidMount()}>New Egg!</button>
+
+                    <div className="bottom-btns">
+                        <button className="nav-btn" onClick={() => this.hatchEgg()}>Hatch Egg!</button>
+                        <button className="nav-btn" onClick={() => this.componentDidMount()}>New Egg!</button>
+                    </div>
             </div>
         )
     }
