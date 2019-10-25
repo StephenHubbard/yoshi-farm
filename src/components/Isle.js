@@ -10,11 +10,10 @@ export default class Farm extends Component {
         this.state = {
             yoshi: []
         }
+        this.releaseYoshi = this.releaseYoshi.bind(this)
     }
 
     componentDidMount() {
-        console.log("mounted")
-
         axios
             .get('/api/yoshi')
             .then(res => {
@@ -24,18 +23,30 @@ export default class Farm extends Component {
             })
     }
 
+    releaseYoshi(id) {
+        axios
+            .delete(`api/yoshi/${id}`)
+            .then(res => {
+                this.setState({
+                    yoshi: res.data
+                })
+            })
+    }
+
     render() {
         return (
-            <content>
+            <body>
+                <div className="wallpaper" />
                 <h3 className="title">Yoshi Isle</h3>
                 <div className="Isle">
                     {this.state.yoshi.map(el => (
                         <Yoshi
                         yoshiObj={el} key={el.id}
+                        releaseYoshiFn={this.releaseYoshi}
                         />
                     ))}
                 </div>
-            </content>
+            </body>
         )
     }
 }

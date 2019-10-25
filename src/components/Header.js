@@ -19,7 +19,6 @@ function Header() {
                 </Link>
                 </nav>
         </header>
-
     )
 }
 

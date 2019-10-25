@@ -53,7 +53,6 @@ export default class Catcher extends Component {
         return (
             <div className="nest">
                 <h3 className="title">Yoshi Nest</h3>
-                <h4>Click to Hatch!</h4>
                 <img src={this.state.img} alt="Yoshi Egg"/>
                 <hr />
                 <button className="nav-btn" onClick={() => this.hatchEgg()}>Hatch Egg!</button>

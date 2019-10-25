@@ -14,3 +14,16 @@
 .title {
     margin-top: 150px;
 }
+
+/* body {
+    background-image: url("wallpaper.png");
+    display: absolute;
+    width: 120vw;
+    height: 120vh;
+    background-repeat: no-repeat;
+    background-position: center-center;
+    background-size: cover;
+    opacity: .5;
+    margin: 0;
+    z-index: -5;
+} */

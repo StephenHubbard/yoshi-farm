@@ -1,0 +1,20 @@
+
+
+button {
+    background-color: white;
+    border: none;
+    color: rgb(53, 53, 53);
+    margin: 0;
+}
+
+.yoshi {
+    position: relative;
+    /* display: flex;
+    flex-direction: column; */
+}
+
+.bomb {
+    position: absolute;
+    top: -30px;
+    right: -30px;
+}
