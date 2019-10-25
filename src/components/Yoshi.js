@@ -32,14 +32,14 @@ export default class Yoshi extends Component {
 
                 {this.state.mushToggle ? (
                 <button onClick={() => this.toggleMushroom(this.props.yoshiObj.id)}>
-                    <img className="mushroom" src="./assets/poisinmushroom.png" />
+                    <img className="mushroom" src="./assets/poisinmushroom.png" alt="poisin mushroom" />
                 </button>
                 ) : 
                 <button onClick={() => this.toggleMushroom(this.props.yoshiObj.id)}>
-                    <img className="mushroom" src="./assets/mushroom.png" />                
+                    <img className="mushroom" src="./assets/mushroom.png" alt="mushroom" />                
                 </button>                
                 }
-                <img src={this.props.yoshiObj.img} alt="Yoshi Image" />
+                <img src={this.props.yoshiObj.img} alt="Yoshi" />
             </div>
         )
     }

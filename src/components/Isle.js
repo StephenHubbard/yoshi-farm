@@ -15,7 +15,7 @@ export default class Isle extends Component {
 
     componentDidMount() {
         axios
-            .get('/api/yoshi')
+            .get('/api/yoshiIsle')
             .then(res => {
                 this.setState({
                     yoshi: res.data
@@ -25,7 +25,7 @@ export default class Isle extends Component {
 
     releaseYoshi(id) {
         axios
-            .delete(`api/yoshi/${id}`)
+            .delete(`api/yoshiIsle/${id}`)
             .then(res => {
                 this.setState({
                     yoshi: res.data

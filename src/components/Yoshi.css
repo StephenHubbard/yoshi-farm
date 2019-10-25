@@ -15,8 +15,13 @@ button {
 
 .bomb {
     position: absolute;
-    top: -30px;
+    top: 0px;
     right: -30px;
+    transition: .5s;
+}
+
+.bomb:hover {
+    font-size: 120%;
 }
 
 .mushroom {

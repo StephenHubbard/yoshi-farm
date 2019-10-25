@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import './Nest.css';
 import axios from 'axios';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 export default class Catcher extends Component {
     constructor() {
@@ -20,7 +21,7 @@ export default class Catcher extends Component {
     }
 
     sendToIsle() {
-        axios.post('/api/yoshi', this.state)
+        axios.post('/api/yoshiIsle', this.state)
         .then(res => {
             this.componentDidMount()
         })
@@ -64,18 +65,34 @@ export default class Catcher extends Component {
         }
     }
 
+    arrowToggle() {
+        console.log("hover over")
+        // <style="color: red" />
+    }
+
 
     render() {
         return (
             <div className="nest">
                 <h3 className="title">Yoshi Nest</h3>
-                <img src={this.state.img} alt="Yoshi Egg"/>
+                    <div className="three-el">
+
+                    <div className="left-container" onMouseOver={() => this.arrowToggle()}>
+                        <button className="side-icon" onClick={() => this.sendToIsle()}>
+                            <img className="yoshi-pic" src="./assets/yoshilogo.png" alt="yoshi logo"/>
+                            <p className="left-text">Send to Yoshi Isle</p>
+                        </button>
+                    </div>
+
+                        <img className="middle-pic" src={this.state.img} alt={this.state.color} />
+                        <button className="side-icon" onClick={() => this.sendToKingdom()}>
+                            <img className="castle-pic" src="./assets/castle.png" alt="castle" />
+                                <p>Send to Mushroom Kingdom</p>
+                        </button>
+                    </div>
                 <hr />
                 <button className="nav-btn" onClick={() => this.hatchEgg()}>Hatch Egg!</button>
                 <button className="nav-btn" onClick={() => this.componentDidMount()}>New Egg!</button>
-                <hr />
-                <button className="nav-btn" onClick={() => this.sendToIsle()}>Send to Yoshi's Isle</button>
-                <button className="nav-btn" onClick={() => this.sendToKingdom()}>Send to Kingdom</button>
             </div>
         )
     }

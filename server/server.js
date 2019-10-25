@@ -9,8 +9,14 @@ const app = express()
 app.use(express.json())
 
 // ENDPOINTS:
-app.post('/api/yoshi', ctrl.hatch)
-app.get('/api/yoshi', ctrl.getYoshi)
-app.delete('/api/yoshi/:id', ctrl.release)
+app.post('/api/yoshiIsle', ctrl.hatchIsle)
+app.get('/api/yoshiIsle', ctrl.getYoshiIsle)
+app.put('/api/yoshiIsle/:id', ctrl.mushToggleIsle)
+app.delete('/api/yoshiIsle/:id', ctrl.releaseIsle)
+
+
+app.post('/api/yoshiKingdom', ctrl.hatchKingdom)
+app.get('/api/yoshiKingdom', ctrl.getYoshiKingdom)
+app.delete('/api/yoshiKingdom/:id', ctrl.releaseKingdom)
 
 app.listen(SERVER_PORT, () => console.log(`${SERVER_PORT} Yoshi's marching on Mushroom Kingdom.`))

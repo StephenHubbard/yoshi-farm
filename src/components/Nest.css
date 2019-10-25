@@ -1,11 +1,24 @@
+
 img {
     height: 240px;
     width: 200px;
+    margin-top: 30px;
 }
 
 .nest {
-    margin-top: 150px;
+    margin-top: 50px;
+    height: 100vh;
 }
+
+.three-el {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+/* .middle-pic {
+    transition: 1s;
+} */
 
 h3 {
     font-size: 50px;
@@ -25,4 +38,48 @@ button {
 
 button:hover {
     cursor: pointer;
+}
+
+.yoshi-pic {
+    border-radius: 20px;
+    height: 100px;
+    width: 200px;
+}
+
+.side-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    font-family: 'Modak', cursive;
+
+}
+
+p {
+    width: 300px;
+}
+
+.left-text {
+    /* transform: translate(0, -100px); */
+}
+
+.left-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.arrow {
+    transform: translate(50px, 0px);
+    transition: 1;
+    color: white;
+}
+
+.arrow:hover {
+    color: black;
+}
+
+.nav-btn {
+    font-family: 'Modak', cursive;
 }

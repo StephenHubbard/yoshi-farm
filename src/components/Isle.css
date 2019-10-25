@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Modak&display=swap')
+
 .Isle {
     display: flex;
     width: 70vw;
@@ -12,7 +14,9 @@
 }
 
 .title {
-    margin-top: 150px;
+    margin-top: 10px;
+    font-family: 'Modak', cursive;
+    
 }
 
 /* body {

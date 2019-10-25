@@ -1,20 +1,42 @@
-const yoshiHatched = []
+const yoshiHatchedIsle = []
+const yoshiHatchedKingdom = []
 let id = 0
 
 module.exports = {
-    hatch: (req, res) => {
+    hatchIsle: (req, res) => {
         const newYoshi = {...req.body, id}
-        yoshiHatched.push(newYoshi)
+        yoshiHatchedIsle.push(newYoshi)
         id++
-        res.status(200).send(yoshiHatched)
+        res.status(200).send(yoshiHatchedIsle)
     }, 
-    getYoshi: (req, res) => {
-        res.status(200).send(yoshiHatched)
+    hatchKingdom: (req, res) => {
+        const newYoshi = {...req.body, id}
+        yoshiHatchedKingdom.push(newYoshi)
+        id++
+        res.status(200).send(yoshiHatchedKingdom)
     }, 
-    release: (req, res) => {
+    getYoshiIsle: (req, res) => {
+        res.status(200).send(yoshiHatchedIsle)
+    }, 
+    getYoshiKingdom: (req, res) => {
+        res.status(200).send(yoshiHatchedKingdom)
+    }, 
+    releaseIsle: (req, res) => {
         const {id} = req.params 
-        const index = yoshiHatched.findIndex(el => el.id === +id)
-        yoshiHatched.splice(index, 1)
-        res.status(200).send(yoshiHatched)
+        const index = yoshiHatchedIsle.findIndex(el => el.id === +id)
+        yoshiHatchedIsle.splice(index, 1)
+        res.status(200).send(yoshiHatchedIsle)
+    },
+    releaseKingdom: (req, res) => {
+        const {id} = req.params 
+        const index = yoshiHatchedKingdom.findIndex(el => el.id === +id)
+        yoshiHatchedKingdom.splice(index, 1)
+        res.status(200).send(yoshiHatchedKingdom)
+    }, 
+    mushToggleIsle: (req, res) => {
+        const {id} = req.params
+        const index = yoshiHatchedIsle.findIndex(el => el.id === +id)
+        yoshiHatchedIsle.splice(index, 1)
+        res.status(200).send(yoshiHatchedIsle)
     }
 }

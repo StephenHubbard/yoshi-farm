@@ -5,20 +5,20 @@ import "./Header.css";
 function Header() {
     return (
         <header>
-            <h1>Yoshi's Isle!</h1>
+            <img className="header-logo" src="./assets/yoshiIslandLogo.png" />"
                 <nav>
                 <Link to="/">
-                    <div className="nav-btn">
+                    <div className="">
                         Yoshi's Isle
                     </div>
                 </Link>
                 <Link to="/nest">
-                    <div className="nav-btn">
-                        Yoshi Nest!
+                    <div className="nest-btn">
+                        Yoshi Nest
                     </div>
                 </Link>
                 <Link to="/mushroomkingdom">
-                    <div className="nav-btn kingdom-btn">
+                    <div className="">
                         Mushroom Kingdom
                     </div>
                 </Link>
