@@ -8,15 +8,14 @@ export default class Catcher extends Component {
         super()
         
         this.state = {
-            name: '',
+            color: '',
             img: "egg.png",
-            color: ''
         }
     }
 
     componentDidMount() {
         this.setState({
-            img: "egg.png"
+            img: "./assets/egg.png"
         })
     }
 
@@ -27,23 +26,40 @@ export default class Catcher extends Component {
         })
     }
 
+    sendToKingdom() {
+        axios.post('/api/yoshiKingdom', this.state)
+        .then(res => {
+            this.componentDidMount()
+        })
+    }
+
     hatchEgg() {
-         const randomNum = Math.ceil(Math.random() * 3)
+         const randomNum = Math.ceil(Math.random() * 5)
         
         if (randomNum === 1) {
             this.setState({
                 color: "green", 
-                img: "greenyoshi.png"
+                img: "./assets/greenyoshi.png"
             })
         } else if (randomNum === 2) {
             this.setState({
                 color: "blue", 
-                img: "blueyoshi.png"
+                img: "./assets/blueyoshi.png"
             })
         } else if (randomNum === 3) {
             this.setState({
                 color: "red", 
-                img: "redyoshi.png"
+                img: "./assets/redyoshi.png"
+            })
+        } else if (randomNum === 4) {
+            this.setState({
+                color: "pink", 
+                img: "./assets/pinkyoshi.png"
+            })
+        } else if (randomNum === 5) {
+            this.setState({
+                color: "black", 
+                img: "./assets/blackyoshi.png"
             })
         }
     }
@@ -59,6 +75,7 @@ export default class Catcher extends Component {
                 <button className="nav-btn" onClick={() => this.componentDidMount()}>New Egg!</button>
                 <hr />
                 <button className="nav-btn" onClick={() => this.sendToIsle()}>Send to Yoshi's Isle</button>
+                <button className="nav-btn" onClick={() => this.sendToKingdom()}>Send to Kingdom</button>
             </div>
         )
     }

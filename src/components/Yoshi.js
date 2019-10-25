@@ -10,8 +10,15 @@ export default class Yoshi extends Component {
         super()
 
         this.state = {
-            nickname: '',
+            mushToggle: false,
         }
+    }
+
+    toggleMushroom() {
+        this.setState({
+            mushToggle: !this.state.mushToggle
+        })
+        console.log(this.state.mushToggle)
     }
 
     render() {
@@ -22,7 +29,17 @@ export default class Yoshi extends Component {
                         <FontAwesomeIcon icon={faBomb} size="2x"/>
                     </div>    
                 </button>
-                <img src={this.props.yoshiObj.img} alt="img" />
+
+                {this.state.mushToggle ? (
+                <button onClick={() => this.toggleMushroom(this.props.yoshiObj.id)}>
+                    <img className="mushroom" src="./assets/poisinmushroom.png" />
+                </button>
+                ) : 
+                <button onClick={() => this.toggleMushroom(this.props.yoshiObj.id)}>
+                    <img className="mushroom" src="./assets/mushroom.png" />                
+                </button>                
+                }
+                <img src={this.props.yoshiObj.img} alt="Yoshi Image" />
             </div>
         )
     }

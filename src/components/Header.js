@@ -17,6 +17,11 @@ function Header() {
                         Yoshi Nest!
                     </div>
                 </Link>
+                <Link to="/mushroomkingdom">
+                    <div className="nav-btn kingdom-btn">
+                        Mushroom Kingdom
+                    </div>
+                </Link>
                 </nav>
         </header>
     )

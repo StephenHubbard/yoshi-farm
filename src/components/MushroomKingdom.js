@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import Yoshi from "./Yoshi";
 import axios from 'axios';
-import './Isle.css';
+import './MushroomKingdom.css';
 
-export default class Isle extends Component {
+export default class MushroomKingdom extends Component {
     constructor() {
         super()
 
@@ -15,7 +15,7 @@ export default class Isle extends Component {
 
     componentDidMount() {
         axios
-            .get('/api/yoshi')
+            .get('/api/yoshiKingdom')
             .then(res => {
                 this.setState({
                     yoshi: res.data
@@ -25,7 +25,7 @@ export default class Isle extends Component {
 
     releaseYoshi(id) {
         axios
-            .delete(`api/yoshi/${id}`)
+            .delete(`api/yoshiKingdom/${id}`)
             .then(res => {
                 this.setState({
                     yoshi: res.data
@@ -37,7 +37,7 @@ export default class Isle extends Component {
         return (
             <body>
                 <div className="wallpaper" />
-                <h3 className="title">Yoshi Isle</h3>
+                <h3 className="title">Mushroom Kingdom</h3>
                 <div className="Isle">
                     {this.state.yoshi.map(el => (
                         <Yoshi
