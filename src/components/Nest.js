@@ -54,7 +54,7 @@ export default class Catcher extends Component {
     }
 
     hatchEgg() {
-         const randomNum = Math.ceil(Math.random() * 5)
+         const randomNum = Math.ceil(Math.random() * 8)
         
         if (randomNum === 1) {
             this.setState({
@@ -82,10 +82,27 @@ export default class Catcher extends Component {
                 img: "./assets/blackyoshi.png"
             })
         }
+        else if (randomNum === 6) {
+            this.setState({
+                color: "", 
+                img: "./assets/koopa.png"
+            })
+        }
+        else if (randomNum === 7) {
+            this.setState({
+                color: "", 
+                img: "./assets/hammerbro.png"
+            })
+        }
+        else if (randomNum === 8) {
+            this.setState({
+                color: "", 
+                img: "./assets/goomba.png"
+            })
+        }
         this.setState({
             alert: false
         })
-        console.log(this.state.alert)
         this.setState({ hatch: true })
     }
 
@@ -137,7 +154,7 @@ export default class Catcher extends Component {
 
                 {this.state.alert ? (
                     <footer className="alert">
-                        Cannot Send Egg - Please Hatch a Yoshi First.
+                        Cannot Send a Bad Guy or an Egg!  Please Hatch a Yoshi First.
                     </footer>
                 ) : null}
 

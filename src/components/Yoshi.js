@@ -11,12 +11,14 @@ export default class Yoshi extends Component {
 
         this.state = {
             mushToggle: false,
+            shrinkToggle: false,
         }
     }
 
     toggleMushroom() {
         this.setState({
-            mushToggle: !this.state.mushToggle
+            mushToggle: !this.state.mushToggle,
+            shrinkToggle: !this.state.shrinkToggle
         })
         this.props.saveMushroomStatusFn(this.props.yoshiObj.id, {mushToggle: !this.props.yoshiObj.mushToggle})
     }
@@ -31,15 +33,26 @@ export default class Yoshi extends Component {
                 </button>
 
                 {this.props.yoshiObj.mushToggle ? (
-                <button onClick={() => this.toggleMushroom(this.props.yoshiObj.id)}>
-                    <img className="mushroom" src="./assets/poisinmushroom.png" alt="poisin mushroom" />
-                </button>
+                    
+                    <div>
+                        <button onClick={() => this.toggleMushroom(this.props.yoshiObj.id)}>
+                            <img className="mushroom" src="./assets/poisinmushroom.png" alt="poisin mushroom" />
+                        </button>
+
+                        <img className="shrinkToggle" src={this.props.yoshiObj.img} alt="Yoshi" />
+                    </div>
                 ) : 
-                <button onClick={() => this.toggleMushroom(this.props.yoshiObj.id)}>
-                    <img className="mushroom" src="./assets/mushroom.png" alt="mushroom" />                
-                </button>                
+                    <div>
+                        <button onClick={() => this.toggleMushroom(this.props.yoshiObj.id)}>
+                            <img className="mushroom" src="./assets/mushroom.png" alt="mushroom" />                
+                        </button>
+                        
+                        <img className="normal" src={this.props.yoshiObj.img} alt="Yoshi" />
+                    </div>
                 }
-                <img src={this.props.yoshiObj.img} alt="Yoshi" />
+
+            
+            
             </div>
         )
     }

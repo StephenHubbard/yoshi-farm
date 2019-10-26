@@ -34,7 +34,6 @@ export default class Isle extends Component {
             })
     }
 
-
     releaseYoshi(id) {
         axios
             .delete(`api/yoshiIsle/${id}`)
