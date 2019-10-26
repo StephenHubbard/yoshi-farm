@@ -8,6 +8,12 @@ button {
     outline: none;
 }
 
+.bot-btn {
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+}
+
 .yoshi {
     position: relative;
     width: 200px;
@@ -31,9 +37,8 @@ button {
     position: absolute;
     top: -20px;
     left: -30px;
-
+    filter: drop-shadow(2mm 2mm .3rem rgb(0, 0, 0));
 }
-
 
 
 .left-arrow {

@@ -13,6 +13,8 @@ export default class Catcher extends Component {
         this.state = {
             color: '',
             img: "egg.png",
+            alert: false,
+            hatch: false,
         }
     }
 
@@ -30,7 +32,10 @@ export default class Catcher extends Component {
                 this.componentDidMount()
             }) 
         } else {
-            alert("cannot send egg")
+            this.setState({
+                alert: true
+            })
+            console.log(this.state.alert)
         }
     }
 
@@ -41,7 +46,10 @@ export default class Catcher extends Component {
                 this.componentDidMount()
             })
         } else {
-            alert("cannot send egg")
+            this.setState({
+                alert: true
+            })
+            console.log(this.state.alert)
         }
     }
 
@@ -74,10 +82,18 @@ export default class Catcher extends Component {
                 img: "./assets/blackyoshi.png"
             })
         }
+        this.setState({
+            alert: false
+        })
+        console.log(this.state.alert)
+        this.setState({ hatch: true })
     }
 
 
     render() {
+        
+        // const hatch = this.state.hatch
+        
         return (
             <div className="nest">
                 <h3 className="title">Yoshi Nest</h3>
@@ -89,26 +105,42 @@ export default class Catcher extends Component {
                             <div className="left-arrow">
                                 <FontAwesomeIcon icon={faArrowLeft} size="4x"/>
                             </div>
-                            <img className="yoshi-pic" src="./assets/yoshilogo.png" alt="yoshi logo"/>
-                                <p className="left-text">Send to Yoshi Isle</p>
+                            <img className="yoshi-pic" src="./assets/yoshiisland.jpg" alt="yoshi logo"/>
+                                <p className="left-text">Yoshi Isle</p>
                         </button>
                     </div>
 
 
-                        <img className="middle-pic" src={this.state.img} alt={this.state.color} />
+                        <div 
+                        onAnimationEnd={() => this.setState({ hatch: false })}
+                        className={this.state.hatch ? 'hatch' : ''}
+                        >
+                            <div className="middle-pic">
+                                <img className="" src={this.state.img} alt={this.state.color} />
+                            </div>
+                        </div>
+
+
                         <button className="side-icon" onClick={() => this.sendToKingdom()}>
                             <div className="right-arrow">
                                 <FontAwesomeIcon icon={faArrowRight} size="4x"/>
                             </div>
                             <img className="castle-pic" src="./assets/castle.png" alt="castle" />
-                                <p>Send to Mushroom Kingdom</p>
+                                <p>Mushroom Kingdom</p>
                         </button>
                     </div>
 
                     <div className="bottom-btns">
-                        <button className="nav-btn" onClick={() => this.hatchEgg()}>Hatch Egg!</button>
+                        <button className="nav-btn" onClick={() => this.hatchEgg()} >Hatch Egg!</button>
                         <button className="nav-btn" onClick={() => this.componentDidMount()}>New Egg!</button>
                     </div>
+
+                {this.state.alert ? (
+                    <footer className="alert">
+                        Cannot Send Egg - Please Hatch a Yoshi First.
+                    </footer>
+                ) : null}
+
             </div>
         )
     }
