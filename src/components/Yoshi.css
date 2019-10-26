@@ -18,26 +18,32 @@ button {
     position: relative;
     width: 200px;
     margin: 20px;
+    border-radius: 50%;
 }
 
 .bomb {
     position: absolute;
-    top: 0px;
+    top: 60px;
     right: -30px;
-    transition: .5s;
+    transition: .3s;
 }
 
 .bomb:hover {
-    font-size: 120%;
+    transform: scale(1.2);
 }
 
 .mushroom {
     height: 50px;
     width: 50px;
     position: absolute;
-    top: -20px;
+    top: 40px;
     left: -30px;
     filter: drop-shadow(2mm 2mm .3rem rgb(0, 0, 0));
+    transition: .3s;
+}
+
+.mushroom:hover {
+    transform: scale(1.2);
 }
 
 
@@ -67,8 +73,8 @@ button {
     color: rgba(105, 105, 105, 1);
 }
 
-.shrinkToggle {
-    animation: shrink-in-keyframes .5s;
+.shrink {
+    /* animation: shrink-in-keyframes .5s; */
     transform: scale(.6);
 }
 @keyframes shrink-in-keyframes {
@@ -93,11 +99,23 @@ button {
     }
 }
 
-.normal {
-    animation: normal-in-keyframes .5s;
+.star {
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    z-index: -10;
+    transform: scale(1.5);
+    animation-name: glow;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.grow {
+    /* animation: grow-in-keyframes .5s; */
     transform: scale(1);
 }
-@keyframes normal-in-keyframes {
+@keyframes grow-in-keyframes {
 
     0% {
         transform: scale(1);
@@ -113,5 +131,18 @@ button {
     }
     100% {
         transform: scale(1);
+    }
+}
+
+@keyframes glow {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: .7;
+    }
+    100%{
+        opacity: 0;
+
     }
 }
