@@ -12,6 +12,7 @@ app.use(express.json())
 app.post('/api/yoshiIsle', ctrl.hatchIsle)
 app.get('/api/yoshiIsle', ctrl.getYoshiIsle)
 app.put('/api/yoshiIsle/:id', ctrl.mushToggleIsle)
+// app.put('/api/yoshiIsle/:id', ctrl.starToggleIsle)
 app.delete('/api/yoshiIsle/:id', ctrl.releaseIsle)
 
 

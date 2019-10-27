@@ -92,6 +92,16 @@ button:hover {
     cursor: pointer;
 }
 
+.home-container {
+    width: 100vw;
+    height: 20vw;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 100px;
+}
+
 .yoshi-pic {
     border-radius: 50%;
     height: 300px;
@@ -100,6 +110,13 @@ button:hover {
 }
 
 .castle-pic {
+    border-radius: 50%;
+    height: 300px;
+    width: 300px;
+    filter: drop-shadow(2mm 2mm 1rem rgb(0, 0, 0));
+}
+
+.nest-pic {
     border-radius: 50%;
     height: 300px;
     width: 300px;

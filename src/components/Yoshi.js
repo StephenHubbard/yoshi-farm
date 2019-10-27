@@ -12,6 +12,7 @@ export default class Yoshi extends Component {
         this.state = {
             mushToggle: false,
             shrinkToggle: false,
+            starToggle: false,
         }
     }
 
@@ -21,6 +22,14 @@ export default class Yoshi extends Component {
             shrinkToggle: !this.state.shrinkToggle
         })
         this.props.saveMushroomStatusFn(this.props.yoshiObj.id, {mushToggle: !this.props.yoshiObj.mushToggle})
+    }
+
+    toggleStar() {
+        this.setState({
+            starToggle: !this.state.starToggle,
+        })
+        console.log(this.state.starToggle)
+        // this.props.saveStarStatusFn(this.props.yoshiObj.id, {starToggle: !this.props.yoshiObj.starToggle})
     }
 
     render() {
@@ -33,26 +42,38 @@ export default class Yoshi extends Component {
                 </button>
 
                 {this.props.yoshiObj.mushToggle ? (
-                    
                     <div>
                         <button onClick={() => this.toggleMushroom(this.props.yoshiObj.id)}>
                             <img className="mushroom" src="./assets/poisinmushroom.png" alt="poisin mushroom" />
-                        </button>
-                    
+                        </button>           
                         <img className="shrink" src={this.props.yoshiObj.img} alt="Yoshi" />
                     </div>
                 ) : 
                     <div>
                         <button onClick={() => this.toggleMushroom(this.props.yoshiObj.id)}>
                             <img className="mushroom" src="./assets/mushroom.png" alt="mushroom" />                
-                        </button>
-                        
+                        </button>               
                         <img className="grow" src={this.props.yoshiObj.img} alt="Yoshi" />
                     </div>
                 }
                 
-                {/* <img className="star" src="./assets/star.png" alt="star" /> */}
-            
+                {this.props.yoshiObj.starToggle ? (
+                    <div>
+                        <button onClick={() => this.toggleStar(this.props.yoshiObj.id)}>
+                            <img className="miniStar" src="./assets/purplestar.png" alt="reg star" />
+                        </button>          
+                    </div>
+                ) : 
+                    <div>
+                        <button onClick={() => this.toggleStar(this.props.yoshiObj.id)}>
+                            <img className="miniStar" src="./assets/ministar.png" alt="purple star" />                
+                        </button>
+                    </div>
+                }
+                
+
+
+                <img className="glowingStar" src="./assets/star.png" alt="star" /> 
             </div>
         )
     }

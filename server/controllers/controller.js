@@ -46,4 +46,9 @@ module.exports = {
         yoshiHatchedKingdom[index].mushToggle = req.body.mushToggle
         res.status(200).send(yoshiHatchedKingdom)
     }
+    // starToggleIsle: (req, res) => {
+    //     const {id} = req.params
+    //     const index = yoshiHatchedIsle.findIndex(el => el.id === +id)
+    //     yoshiHatchedIsle[index].starToggle = req.body.starToggle
+    //     res.status(200).send(yoshiHatchedIsle)
 }

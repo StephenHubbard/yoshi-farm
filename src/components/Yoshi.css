@@ -23,7 +23,7 @@ button {
 
 .bomb {
     position: absolute;
-    top: 60px;
+    top: 40px;
     right: -30px;
     transition: .3s;
 }
@@ -36,13 +36,27 @@ button {
     height: 50px;
     width: 50px;
     position: absolute;
-    top: 40px;
+    top: 10px;
     left: -30px;
     filter: drop-shadow(2mm 2mm .3rem rgb(0, 0, 0));
     transition: .3s;
 }
 
+.miniStar {
+    height: 65px;
+    width: 65px;
+    position: absolute;
+    top: 5px;
+    left: 40px;
+    filter: drop-shadow(1mm 1mm .2rem rgb(0, 0, 0));
+    transition: .3s;
+}
+
 .mushroom:hover {
+    transform: scale(1.2);
+}
+
+.miniStar:hover {
     transform: scale(1.2);
 }
 
@@ -74,7 +88,7 @@ button {
 }
 
 .shrink {
-    /* animation: shrink-in-keyframes .5s; */
+    animation: shrink-in-keyframes .5s;
     transform: scale(.6);
 }
 @keyframes shrink-in-keyframes {
@@ -99,16 +113,17 @@ button {
     }
 }
 
-.star {
+.glowingStar {
     position: absolute;
     top: 60px;
-    left: 20px;
+    left: 0px;
     z-index: -10;
     transform: scale(1.5);
     animation-name: glow;
     animation-duration: 3s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
+    display: none;
 }
 
 .grow {

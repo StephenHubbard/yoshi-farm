@@ -12,6 +12,7 @@ export default class Isle extends Component {
         }
         this.releaseYoshi = this.releaseYoshi.bind(this)
         this.saveMushroomStatus = this.saveMushroomStatus.bind(this)
+        this.saveStarStatus = this.saveStarStatus.bind(this)
     }
 
     componentDidMount() {
@@ -25,6 +26,16 @@ export default class Isle extends Component {
     }
 
     saveMushroomStatus(id, body) {
+        axios
+            .put(`/api/yoshiIsle/${id}`, body)
+            .then(res => {
+                this.setState({
+                    yoshi: res.data
+                })
+            })
+    }
+
+    saveStarStatus(id, body) {
         axios
             .put(`/api/yoshiIsle/${id}`, body)
             .then(res => {
@@ -55,6 +66,7 @@ export default class Isle extends Component {
                         yoshiObj={el} key={el.id}
                         releaseYoshiFn={this.releaseYoshi}
                         saveMushroomStatusFn={this.saveMushroomStatus}
+                        saveStarStatusFn={this.saveStarStatus}
                         />
                     ))}
                 </div>

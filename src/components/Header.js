@@ -5,9 +5,11 @@ import "./Header.css";
 function Header() {
     return (
         <header>
-            <img className="header-logo" src="./assets/yoshiIslandLogo.png" alt="alt" />"
+            <Link to ="/">
+                <img className="header-logo" src="./assets/yoshiIslandLogo.png" alt="alt" />
+            </Link>
                 <nav>
-                <Link to="/">
+                <Link to="/isle">
                     <div className="">
                         Yoshi Isle
                     </div>
