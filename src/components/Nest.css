@@ -23,16 +23,17 @@ img {
     justify-content: space-around;
 }
 
-.middle-pic {
+.egg-pic {
     margin-top: 40px;
-}
-
-.middle-pic:hover {
     transition: 1s;
     animation-name: shake;
     animation-duration: 3s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
+}
+
+.middle-pic {
+    margin-top: 40px;
 }
 
 @keyframes shake {
@@ -160,7 +161,7 @@ p {
     color: black;
 } */
 
-.left-arrow {
+/* .left-arrow {
     position: absolute;
     left: -130px;
     top: 180px;
@@ -172,7 +173,7 @@ p {
     right: -130px;
     top: 180px;
     color: white;
-}
+} */
 
 .nav-btn {
     font-family: 'Modak', cursive;

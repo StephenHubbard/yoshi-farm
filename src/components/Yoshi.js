@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './Yoshi.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBomb } from '@fortawesome/free-solid-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faBomb } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -36,9 +36,7 @@ export default class Yoshi extends Component {
         return (
             <div className="yoshi">
                 <button onClick={() => this.props.releaseYoshiFn(this.props.yoshiObj.id)}>
-                    <div className="bomb">
-                        <FontAwesomeIcon icon={faBomb} size="2x"/>
-                    </div>    
+                        <img className="bomb" src="./assets/bomb.png" alt="bomb" />
                 </button>
 
                 {this.props.yoshiObj.mushToggle ? (
@@ -53,27 +51,25 @@ export default class Yoshi extends Component {
                         <button onClick={() => this.toggleMushroom(this.props.yoshiObj.id)}>
                             <img className="mushroom" src="./assets/mushroom.png" alt="mushroom" />                
                         </button>               
-                        <img className="grow" src={this.props.yoshiObj.img} alt="Yoshi" />
+                        <img className="grow" src={this.props.yoshiObj.img} alt="Yoshi" /> 
                     </div>
                 }
                 
-                {this.props.yoshiObj.starToggle ? (
+                {this.state.starToggle ? (
                     <div>
                         <button onClick={() => this.toggleStar(this.props.yoshiObj.id)}>
                             <img className="miniStar" src="./assets/purplestar.png" alt="reg star" />
+                            <img className="glowingStar" src="./assets/star.png" alt="star" />
                         </button>          
                     </div>
                 ) : 
                     <div>
                         <button onClick={() => this.toggleStar(this.props.yoshiObj.id)}>
-                            <img className="miniStar" src="./assets/ministar.png" alt="purple star" />                
+                            <img className="miniStar" src="./assets/ministar.png" alt="purple star" /> 
                         </button>
                     </div>
                 }
                 
-
-
-                <img className="glowingStar" src="./assets/star.png" alt="star" /> 
             </div>
         )
     }

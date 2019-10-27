@@ -5,10 +5,37 @@ header {
     height: 6rem;
 }
 
+li {
+    list-style-type: none;
+}
+
 .header-logo {
     margin: 0;
     width: 300px;
     height: 80px;
+}
+
+.header-coin {
+    height: 70px;
+    width: 70px;
+}
+
+.coin-count {
+    display: flex;
+    display: row;
+    font-weight: bold;
+    color: white;
+    align-items: center;
+    position: absolute;
+    top: -35px;
+    right: 50px;
+}
+
+h6 {
+    margin: 0;
+    font-size: 5rem;
+    margin-top: 20px;
+    margin-left: 20px;
 }
 
 h1 {
@@ -18,12 +45,17 @@ h1 {
 }
 
 nav {
-    background-color: rgb(6, 158, 6);
+    background-color: rgb(4, 146, 4);
     display: flex;
     justify-content: space-around;
     font-size: 2rem;
     margin-top: 0px;
     color: white;
+}
+
+.warning-icon {
+    display: none;
+    margin: 0 20px;
 }
 
 .nav-btn {
@@ -51,6 +83,30 @@ a {
     transition: .1s;
 }
 
+.new-li {
+    display: none;
+    padding-right: 100px;
+}
+
 a:hover {
     color: rgb(197, 197, 197);
+}
+
+@media (max-width: 1000px) {
+    nav {
+        background-color: #f44336;
+
+    }
+
+    .warning-icon {
+        display: inline-block !important;
+    }
+
+    li {
+        display: none;
+    }
+
+    .new-li {
+        display: inline-block !important;
+    }
 }

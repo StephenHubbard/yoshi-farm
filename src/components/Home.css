@@ -2,5 +2,19 @@
     margin-top: 100px;
     font-family: 'Modak', cursive;
     font-size: 5rem;
+}
 
+h1 {
+    color: black;
+}
+
+.starhill {
+    border-radius: 50%;
+    height: 300px;
+    width: 300px;
+    filter: drop-shadow(2mm 2mm 1rem rgb(0, 0, 0));
+}
+
+h3 {
+    color: black;
 }

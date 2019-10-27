@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import './Nest.css';
 import axios from 'axios';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+// import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 
 export default class Catcher extends Component {
@@ -15,6 +15,7 @@ export default class Catcher extends Component {
             img: "egg.png",
             alert: false,
             hatch: false,
+            egg: true,
         }
     }
 
@@ -22,6 +23,7 @@ export default class Catcher extends Component {
         this.setState({
             img: "./assets/egg.png",
             color: '',
+            egg: true,
         })
     }
 
@@ -35,7 +37,6 @@ export default class Catcher extends Component {
             this.setState({
                 alert: true
             })
-            console.log(this.state.alert)
         }
     }
 
@@ -49,7 +50,6 @@ export default class Catcher extends Component {
             this.setState({
                 alert: true
             })
-            console.log(this.state.alert)
         }
     }
 
@@ -103,14 +103,12 @@ export default class Catcher extends Component {
         this.setState({
             alert: false
         })
-        this.setState({ hatch: true })
+        this.setState({ hatch: true, 
+                        egg: false})
     }
 
 
-    render() {
-        
-        // const hatch = this.state.hatch
-        
+    render() {        
         return (
             <div className="nest">
                 <h3 className="title">Yoshi Nest</h3>
@@ -119,29 +117,35 @@ export default class Catcher extends Component {
 
                     <div className="left-container">
                         <button className="side-icon" onClick={() => this.sendToIsle()}>
-                            <div className="left-arrow">
+                            {/* <div className="left-arrow">
                                 <FontAwesomeIcon icon={faArrowLeft} size="4x"/>
-                            </div>
+                            </div> */}
                             <img className="yoshi-pic" src="./assets/yoshiisland.jpg" alt="yoshi logo"/>
                                 <p className="left-text">Yoshi Isle</p>
                         </button>
                     </div>
 
 
+                    {this.state.egg ? (
+                            <div className="egg-pic">
+                                <img className="" src={this.state.img} alt={this.state.color} />
+                            </div>
+                    ) : 
                         <div 
-                        onAnimationEnd={() => this.setState({ hatch: false })}
+                        onAnimationEnd={() => this.setState({ hatch: false})}
                         className={this.state.hatch ? 'hatch' : ''}
                         >
                             <div className="middle-pic">
                                 <img className="" src={this.state.img} alt={this.state.color} />
                             </div>
                         </div>
+                    }
 
 
                         <button className="side-icon" onClick={() => this.sendToKingdom()}>
-                            <div className="right-arrow">
+                            {/* <div className="right-arrow">
                                 <FontAwesomeIcon icon={faArrowRight} size="4x"/>
-                            </div>
+                            </div> */}
                             <img className="castle-pic" src="./assets/castle.png" alt="castle" />
                                 <p>Mushroom Kingdom</p>
                         </button>

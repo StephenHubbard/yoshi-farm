@@ -1,0 +1,21 @@
+.star-hill {
+    margin-top: 60px;
+}
+
+.coin-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    flex-wrap: wrap;
+    align-content: stretch;
+    margin-left: 150px;
+    
+}
+
+.coinbox {
+    height: 200px;
+    width: 200px;
+    margin: 50px;
+}
+

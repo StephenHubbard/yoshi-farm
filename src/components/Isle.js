@@ -59,17 +59,17 @@ export default class Isle extends Component {
         return (
             <div>
                 <div className="wallpaper" />
-                <h3 className="title">Yoshi Isle</h3>
-                <div className="Isle">
-                    {this.state.yoshi.map(el => (
-                        <Yoshi
-                        yoshiObj={el} key={el.id}
-                        releaseYoshiFn={this.releaseYoshi}
-                        saveMushroomStatusFn={this.saveMushroomStatus}
-                        saveStarStatusFn={this.saveStarStatus}
-                        />
-                    ))}
-                </div>
+                    <h3 className="title">Yoshi Isle</h3>
+                    <div className="Isle">
+                        {this.state.yoshi.map(el => (
+                            <Yoshi
+                            yoshiObj={el} key={el.id}
+                            releaseYoshiFn={this.releaseYoshi}
+                            saveMushroomStatusFn={this.saveMushroomStatus}
+                            saveStarStatusFn={this.saveStarStatus}
+                            />
+                        ))}
+                    </div>
             </div>
         )
     }

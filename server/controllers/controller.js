@@ -5,7 +5,7 @@ let id = 0
 
 module.exports = {
     hatchIsle: (req, res) => {
-        const newYoshi = {...req.body, id, mushToggle: false}
+        const newYoshi = {...req.body, id}
         yoshiHatchedIsle.push(newYoshi)
         id++
         res.status(200).send(yoshiHatchedIsle)
@@ -51,4 +51,5 @@ module.exports = {
     //     const index = yoshiHatchedIsle.findIndex(el => el.id === +id)
     //     yoshiHatchedIsle[index].starToggle = req.body.starToggle
     //     res.status(200).send(yoshiHatchedIsle)
+    
 }
