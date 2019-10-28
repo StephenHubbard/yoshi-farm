@@ -14,7 +14,7 @@ export default class Starhill extends Component {
         this.setState({
             coinAmountStarHill: this.state.coinAmountStarHill + 1
         })
-        console.log(this.state.coinAmount)
+        console.log(this.state.coinAmountStarHill)
     }
 
     render() {

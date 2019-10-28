@@ -1,26 +1,11 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import CoinTracker from './CoinTracker';
+// import CoinTracker from './CoinTracker';
 import "./Header.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBan } from '@fortawesome/free-solid-svg-icons'
 
 export default class Header extends Component {
-    constructor() {
-        super()
-
-        this.state = {
-            coinAmountHeader: 0,
-        }
-        this.handleCoinAmount = this.handleCoinAmount.bind(this);
-    }
-
-    handleCoinAmount() {
-        this.setState({
-            coinAmount: this.state.coinAmount + 1
-        })
-        console.log(this.state.coinAmount)
-    }
     
     render() {        
         return (
@@ -29,7 +14,7 @@ export default class Header extends Component {
                     <img className="header-logo" src="./assets/yoshiIslandLogo.png" alt="logo" />
                 </Link>
 
-                    <CoinTracker />
+                    {/* <CoinTracker /> */}
 
                     <nav>
                         <Link to="/isle">

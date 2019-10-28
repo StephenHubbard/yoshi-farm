@@ -11,7 +11,6 @@ export default class Home extends Component {
                 <h1>Home Page</h1>
                 <Link to ="/starhill">
                     <img className="starhill" src="./assets/starhill.jpg" alt="star hill" />
-                    <h3>Star Hill</h3>
                 </Link>
             </div>
         ) 

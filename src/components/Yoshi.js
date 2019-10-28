@@ -21,15 +21,16 @@ export default class Yoshi extends Component {
             mushToggle: !this.state.mushToggle,
             shrinkToggle: !this.state.shrinkToggle
         })
-        this.props.saveMushroomStatusFn(this.props.yoshiObj.id, {mushToggle: !this.props.yoshiObj.mushToggle})
+        this.props.saveYoshiStatusFn(this.props.yoshiObj.id, {mushToggle: !this.props.yoshiObj.mushToggle,
+                                                                starToggle: this.props.yoshiObj.starToggle})
     }
 
     toggleStar() {
         this.setState({
             starToggle: !this.state.starToggle,
         })
-        console.log(this.state.starToggle)
-        // this.props.saveStarStatusFn(this.props.yoshiObj.id, {starToggle: !this.props.yoshiObj.starToggle})
+        this.props.saveYoshiStatusFn(this.props.yoshiObj.id, {starToggle: !this.props.yoshiObj.starToggle,
+                                                                mushToggle: this.props.yoshiObj.mushToggle})
     }
 
     render() {
@@ -55,7 +56,7 @@ export default class Yoshi extends Component {
                     </div>
                 }
                 
-                {this.state.starToggle ? (
+                {this.props.yoshiObj.starToggle ? (
                     <div>
                         <button onClick={() => this.toggleStar(this.props.yoshiObj.id)}>
                             <img className="miniStar" src="./assets/purplestar.png" alt="reg star" />

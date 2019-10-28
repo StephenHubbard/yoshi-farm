@@ -115,15 +115,13 @@ export default class Catcher extends Component {
                     <div className="three-el">
 
 
-                    <div className="left-container">
+                    
                         <button className="side-icon" onClick={() => this.sendToIsle()}>
-                            {/* <div className="left-arrow">
-                                <FontAwesomeIcon icon={faArrowLeft} size="4x"/>
-                            </div> */}
+                            
                             <img className="yoshi-pic" src="./assets/yoshiisland.jpg" alt="yoshi logo"/>
                                 <p className="left-text">Yoshi Isle</p>
                         </button>
-                    </div>
+                    
 
 
                     {this.state.egg ? (
@@ -143,9 +141,6 @@ export default class Catcher extends Component {
 
 
                         <button className="side-icon" onClick={() => this.sendToKingdom()}>
-                            {/* <div className="right-arrow">
-                                <FontAwesomeIcon icon={faArrowRight} size="4x"/>
-                            </div> */}
                             <img className="castle-pic" src="./assets/castle.png" alt="castle" />
                                 <p>Mushroom Kingdom</p>
                         </button>

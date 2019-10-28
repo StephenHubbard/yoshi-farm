@@ -24,16 +24,18 @@ img {
 }
 
 .egg-pic {
-    margin-top: 40px;
+    margin-top: 20px;
     transition: 1s;
     animation-name: shake;
     animation-duration: 3s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
+    border: none;
 }
 
 .middle-pic {
-    margin-top: 40px;
+    margin-top: 20px;
+    border: none;
 }
 
 @keyframes shake {
@@ -132,6 +134,7 @@ button:hover {
     margin: 0;
     font-family: 'Modak', cursive;
     outline: none;
+    margin-top: -75px;
 }
 
 .side-icon:hover {
@@ -151,29 +154,6 @@ p {
     align-items: center;
     justify-content: space-around;
 }
-
-/* .arrow {
-    transition: 1;
-    color: black;
-}
-
-.arrow:hover {
-    color: black;
-} */
-
-/* .left-arrow {
-    position: absolute;
-    left: -130px;
-    top: 180px;
-    color: white;
-}
-
-.right-arrow {
-    position: absolute;
-    right: -130px;
-    top: 180px;
-    color: white;
-} */
 
 .nav-btn {
     font-family: 'Modak', cursive;

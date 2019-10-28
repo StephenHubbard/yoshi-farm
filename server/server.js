@@ -11,14 +11,14 @@ app.use(express.json())
 // ENDPOINTS:
 app.post('/api/yoshiIsle', ctrl.hatchIsle)
 app.get('/api/yoshiIsle', ctrl.getYoshiIsle)
-app.put('/api/yoshiIsle/:id', ctrl.mushToggleIsle)
-// app.put('/api/yoshiIsle/:id', ctrl.starToggleIsle)
+app.get('/api/filter/yoshiIsle', ctrl.filterYoshiIsle)
+app.put('/api/yoshiIsle/:id', ctrl.yoshiToggleIsle)
 app.delete('/api/yoshiIsle/:id', ctrl.releaseIsle)
-
 
 app.post('/api/yoshiKingdom', ctrl.hatchKingdom)
 app.get('/api/yoshiKingdom', ctrl.getYoshiKingdom)
-app.put('/api/yoshiKingdom/:id', ctrl.mushToggleKingdom)
+app.get('/api/filter/yoshiKingdom', ctrl.filterYoshiKingdom)
+app.put('/api/yoshiKingdom/:id', ctrl.yoshiToggleKingdom)
 app.delete('/api/yoshiKingdom/:id', ctrl.releaseKingdom)
 
-app.listen(SERVER_PORT, () => console.log(`${SERVER_PORT} Yoshi's marching on Mushroom Kingdom.`))
+app.listen(SERVER_PORT, () => console.log(`${SERVER_PORT} Yoshi's marching on Bowser's Castle.`))

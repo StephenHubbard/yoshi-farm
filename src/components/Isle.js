@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Yoshi from "./Yoshi";
 import axios from 'axios';
 import './Isle.css';
+import Swal from 'sweetalert2';
 
 export default class Isle extends Component {
     constructor() {
@@ -11,8 +12,8 @@ export default class Isle extends Component {
             yoshi: []
         }
         this.releaseYoshi = this.releaseYoshi.bind(this)
-        this.saveMushroomStatus = this.saveMushroomStatus.bind(this)
-        this.saveStarStatus = this.saveStarStatus.bind(this)
+        this.saveYoshiStatus = this.saveYoshiStatus.bind(this)
+        // this.saveStarStatus = this.saveStarStatus.bind(this)
     }
 
     componentDidMount() {
@@ -22,27 +23,22 @@ export default class Isle extends Component {
                 this.setState({
                     yoshi: res.data
                 })
+                if (this.state.yoshi.length === 0 ) {  
+                Swal.fire("Go hatch some Yoshi's first!")
+                }
             })
     }
 
-    saveMushroomStatus(id, body) {
+    saveYoshiStatus(id, body) {
         axios
             .put(`/api/yoshiIsle/${id}`, body)
             .then(res => {
                 this.setState({
                     yoshi: res.data
                 })
-            })
-    }
-
-    saveStarStatus(id, body) {
-        axios
-            .put(`/api/yoshiIsle/${id}`, body)
-            .then(res => {
-                this.setState({
-                    yoshi: res.data
-                })
-            })
+            }).catch(function(error) {
+                alert(error);
+        });
     }
 
     releaseYoshi(id) {
@@ -55,18 +51,37 @@ export default class Isle extends Component {
             })
     }
 
+    filterColor(color) {
+        axios
+            .get(`/api/filter/yoshiIsle?color=${color}`)
+            .then(res => {
+                this.setState({ yoshi: res.data })
+                if (this.state.yoshi.length === 0 ) {  
+                Swal.fire("No Yoshi's in that color")
+            }
+        })        
+    }
+
     render() {
         return (
             <div>
                 <div className="wallpaper" />
                     <h3 className="title">Yoshi Isle</h3>
+                        <div className="five-btns">
+                            <button className="query-btn" onClick={() => this.componentDidMount()}>All Yoshi's</button>
+                            <button className="query-btn" onClick={() => this.filterColor("green")}>Green</button>
+                            <button className="query-btn" onClick={() => this.filterColor("blue")}>Blue</button>
+                            <button className="query-btn" onClick={() => this.filterColor("pink")}>Pink</button>
+                            <button className="query-btn" onClick={() => this.filterColor("black")}>Black</button>
+                            <button className="query-btn" onClick={() => this.filterColor("red")}>Red</button>
+                        </div>
                     <div className="Isle">
-                        {this.state.yoshi.map(el => (
+                        {this.state.yoshi.map(el => ( 
                             <Yoshi
                             yoshiObj={el} key={el.id}
                             releaseYoshiFn={this.releaseYoshi}
-                            saveMushroomStatusFn={this.saveMushroomStatus}
-                            saveStarStatusFn={this.saveStarStatus}
+                            saveYoshiStatusFn={this.saveYoshiStatus}
+                            // saveStarStatusFn={this.saveStarStatus}
                             />
                         ))}
                     </div>
