@@ -29,10 +29,7 @@ export default class Header extends Component {
                     <img className="header-logo" src="./assets/yoshiIslandLogo.png" alt="logo" />
                 </Link>
 
-                    <span className="coin-count">
-                        <img className="header-coin" src="./assets/coin.png" alt="coin" />
-                        <h6>{this.state.coinAmountHeader}</h6>
-                    </span>
+                    <CoinTracker />
 
                     <nav>
                         <Link to="/isle">
