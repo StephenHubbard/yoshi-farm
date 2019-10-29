@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import './Yoshi.css';
+import Bomb from './Bomb';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faBomb } from '@fortawesome/free-solid-svg-icons'
-
-
 
 export default class Yoshi extends Component {
     constructor() {
@@ -36,8 +35,9 @@ export default class Yoshi extends Component {
     render() {
         return (
             <div className="yoshi">
+
                 <button onClick={() => this.props.releaseYoshiFn(this.props.yoshiObj.id)}>
-                        <img className="bomb" src="./assets/bomb.png" alt="bomb" />
+                    <Bomb />
                 </button>
 
                 {this.props.yoshiObj.mushToggle ? (
