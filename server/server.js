@@ -21,4 +21,4 @@ app.get('/api/filter/yoshiKingdom', ctrl.filterYoshiKingdom)
 app.put('/api/yoshiKingdom/:id', ctrl.yoshiToggleKingdom)
 app.delete('/api/yoshiKingdom/:id', ctrl.releaseKingdom)
 
-app.listen(SERVER_PORT, () => console.log(`${SERVER_PORT} Yoshi's marching on Bowser's Castle.`))
+app.listen(4001, () => console.log(`${4001} Yoshi's marching on Bowser's Castle.`))
